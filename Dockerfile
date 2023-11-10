@@ -23,10 +23,10 @@ RUN pip install poetry && poetry config virtualenvs.create true
 
 COPY pyproject.toml .
 COPY poetry.lock .
-RUN poetry install
+RUN poetry install --no-root
 
 RUN mkdir app
 WORKDIR /app
 COPY . /app
 
-CMD ["python", "main.py"]
+CMD ["./.venv/bin/python", "main.py"]
