@@ -1,5 +1,5 @@
-# FROM ultrafunk/undetected-chromedriver:106
-FROM ultrafunk/undetected-chromedriver:3.20-chrome-lateinstall
+FROM ultrafunk/undetected-chromedriver:106
+# FROM ultrafunk/undetected-chromedriver:3.20-chrome-lateinstall
 # FROM ultrafunk/undetected-chromedriver:3.20-chrome108
 
 ENV PYTHONFAULTHANDLER=1 \
@@ -21,12 +21,13 @@ ENV PATH="$VENV_PATH/bin:$PATH"
 
 RUN pip install poetry && poetry config virtualenvs.create true
 
+RUN mkdir app
+WORKDIR /app
+
 COPY pyproject.toml .
 COPY poetry.lock .
 RUN poetry install --no-root
 
-RUN mkdir app
-WORKDIR /app
 COPY . /app
 
 CMD ["./.venv/bin/python", "main.py"]
