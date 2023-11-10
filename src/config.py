@@ -7,4 +7,4 @@ queries = [
     },
 ]
 
-number_of_scrapers = 16
+number_of_scrapers = 4
