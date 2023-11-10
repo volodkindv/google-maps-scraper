@@ -19,7 +19,7 @@ ENV PYTHONFAULTHANDLER=1 \
 
 ENV PATH="$VENV_PATH/bin:$PATH"
 
-RUN pip install poetry && poetry config virtualenvs.create false
+RUN pip install poetry && poetry config virtualenvs.create true
 
 COPY pyproject.toml .
 COPY poetry.lock .
