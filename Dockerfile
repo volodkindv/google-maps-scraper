@@ -1,5 +1,7 @@
 FROM ultrafunk/undetected-chromedriver:106
 
+LABEL org.opencontainers.image.authors="volodkindv@yandex.ru"
+
 ENV PYTHONUNBUFFERED=1
 
 COPY requirements.txt .

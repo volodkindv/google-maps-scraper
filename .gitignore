@@ -113,3 +113,8 @@ output/
 temp/
 NEXT-STEPS
 .vscode
+
+# specific for this project
+profiles.json
+local_storage.json
+#queries.txt
