@@ -1,7 +1,7 @@
 '''
 Love It? Star It! ⭐ https://github.com/omkarcloud/google-maps-scraper/
 '''
-queries = [
+___queries = [
     {
         "keyword": "restaurants in delhi",
     },
