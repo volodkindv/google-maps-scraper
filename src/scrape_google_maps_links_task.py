@@ -3,17 +3,15 @@ import os
 import urllib.parse
 from bose import *
 from src.scrape_google_maps_places_task import ScrapeGoogleMapsPlacesTask
-from .config import number_of_scrapers  # , queries
-
-# тут надо бы научиться переопределять queries. Или формат конфига другой, или в другое место поместить.
-# Я бы вынес поисковые фразы в отдельный текстовый файл.
-
-queries_source = "./queries.txt"
-with open(queries_source, "r", encoding="utf8") as f:
-    queries = [{"keyword": line} for line in f.readlines()]
+from .config import number_of_scrapers
 
 from bose.utils import read_json
 import pydash
+
+def get_queries() -> list[str]:
+    queries_source = "./queries.txt"
+    with open(queries_source, "r", encoding="utf8") as f:
+        return [{"keyword": line} for line in f.readlines()]
 
 
 def divide_list(input_list, num_of_groups=6, skip_if_less_than=20):
@@ -76,7 +74,7 @@ class ScrapeGoogleMapsLinksTask(BaseTask):
     def get_data(self):
         result = []
 
-        for query in queries:
+        for query in get_queries():
             keyword = query["keyword"]
             keyword_kebab = pydash.kebab_case(keyword)
             filepath = os.path.join("output", keyword_kebab + ".json")
