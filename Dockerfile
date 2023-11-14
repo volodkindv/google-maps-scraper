@@ -8,6 +8,7 @@ COPY requirements.txt .
 RUN python -m pip install  -r requirements.txt
 
 RUN mkdir app
+RUN mkdir app/build
 WORKDIR /app
 COPY . /app
 
