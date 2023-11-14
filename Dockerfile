@@ -10,6 +10,7 @@ RUN python -m pip install  -r requirements.txt
 RUN mkdir app
 WORKDIR /app
 COPY ./src /app/src
+COPY ./get_more_data.js /app
 COPY ./build /app/build
 COPY ./main.py /app
 
