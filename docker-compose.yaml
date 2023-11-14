@@ -4,9 +4,9 @@ services:
       restart: "no"
       shm_size: 4000m
       image: skif47/google-maps-scraper:03
-      build:
-        dockerfile: Dockerfile
-        context: .
+      # build:
+      #   dockerfile: Dockerfile
+      #   context: .
       volumes:
         - ./output:/app/output
         - ./tasks:/app/tasks
