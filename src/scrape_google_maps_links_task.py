@@ -3,7 +3,12 @@ import os
 import urllib.parse
 from bose import *
 from src.scrape_google_maps_places_task import ScrapeGoogleMapsPlacesTask
-from .config import number_of_scrapers, queries
+from .config import number_of_scrapers  # , queries
+
+queries_source = "./queries.txt"
+with open(queries_source, "r", encoding="utf8") as f:
+    queries = [{"keyword": line} for line in f.readlines()]
+
 from bose.utils import read_json
 import pydash
 
@@ -94,9 +99,7 @@ def sort_dict_by_keys(dictionary, keys):
 
 
 def clean(data_list, query):
-    keys = query.get("select", 'ALL')
-
-    if keys == 'ALL':
+    if True:  # просто для сохранения истории. Форматирование в следующем коммите.
         keys = ["title",
                 "link",
                 "main_category",

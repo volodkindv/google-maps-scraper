@@ -3,12 +3,15 @@ services:
     bot-1:
       restart: "no"
       shm_size: 4000m
-      build:
-        dockerfile: Dockerfile
-        context: .
+      image: skif47/google-maps-scraper:05
+      # uncomment next lines to build local image if needed
+      # build:
+      #   dockerfile: Dockerfile
+      #   context: .
       volumes:
         - ./output:/app/output
         - ./tasks:/app/tasks
         - ./profiles:/app/profiles
         - ./profiles.json:/app/profiles.json
         - ./local_storage.json:/app/local_storage.json
+        - ./queries.txt:/app/queries.txt        
