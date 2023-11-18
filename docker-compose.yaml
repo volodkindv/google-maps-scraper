@@ -2,12 +2,17 @@ version: "3"
 services:
     bot-1:
       restart: "no"
+      ports:
+        - 5900:5900
+      environment:
+        VNC_PASSWORD: 123456
+        SCRAPER_WORKERS_COUNT: 8
       shm_size: 4000m
-      image: skif47/google-maps-scraper:05
+      # image: skif47/google-maps-scraper:05
       # uncomment next lines to build local image if needed
-      # build:
-      #   dockerfile: Dockerfile
-      #   context: .
+      build:
+        dockerfile: Dockerfile
+        context: .
       volumes:
         - ./output:/app/output
         - ./tasks:/app/tasks

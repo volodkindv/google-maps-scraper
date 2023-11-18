@@ -13,5 +13,6 @@ COPY ./src /app/src
 COPY ./get_more_data.js /app
 COPY ./build /app/build
 COPY ./main.py /app
+COPY ./start.sh /app
 
-CMD ["python", "main.py"]
+CMD ["sh", "start.sh"]

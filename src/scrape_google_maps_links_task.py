@@ -150,7 +150,7 @@ class ScrapeGoogleMapsLinksTask(BaseTask):
         block_images_fonts_css=True,
         # Do not make it eager as it leads to the loss of fields and previous data get used instead of new one.
         # is_eager=True,
-        headless=True,
+        headless=False,
     )
 
     def save_google(self, driver: BoseDriver, data):
