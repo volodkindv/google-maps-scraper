@@ -6,7 +6,7 @@ services:
         - 5900:5900
       environment:
         VNC_PASSWORD: 123456
-        SCRAPER_WORKERS_COUNT: 8
+        SCRAPER_WORKERS_COUNT: 2
       shm_size: 4000m
       image: skif47/google-maps-scraper:06
       # uncomment next lines to build local image if needed
