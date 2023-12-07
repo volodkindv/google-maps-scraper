@@ -127,7 +127,7 @@ def clean(data_list, query):
                 "complete_address",
                 "time_zone",
                 "about",
-                "user_reviews",
+                # "user_reviews",
                 "cid",
                 "data_id"
                 ]
