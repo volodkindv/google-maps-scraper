@@ -206,7 +206,8 @@ class ScrapeGoogleMapsLinksTask(BaseTask):
         def get_links():
             def scroll_till_end(times):
                 def visit_gmap():
-                    endpoint = f'maps/search/{urllib.parse.quote_plus(keyword)}'
+                    language_arg = "hl=en"
+                    endpoint = f'maps/search/{urllib.parse.quote_plus(keyword)}?{language_arg}'
                     url = f'https://www.google.com/{endpoint}'
 
                     driver.get_by_current_page_referrer(url)
